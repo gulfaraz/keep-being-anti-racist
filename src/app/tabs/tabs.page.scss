@@ -1,0 +1,15 @@
+ion-tab-bar {
+    border-bottom: none;
+}
+
+ion-tab-button {
+    &.tab-disabled {
+        opacity: 0.6;
+    }
+
+    &#tab-button-racism-support {
+        --color: var(--ion-color-dark-contrast);
+        --color-selected: var(--ion-color-dark-contrast);
+        --background: #ffc001;
+    }
+}

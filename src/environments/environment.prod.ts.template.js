@@ -9,9 +9,6 @@ export const environment = {
   showDebug: ${process.env.NG_SHOW_DEBUG || 'false'},
   useAnimation: ${process.env.NG_USE_ANIMATION || 'true'},
 
-  // APIs:
-  url_121_service_api: '${process.env.NG_URL_121_SERVICE_API}',
-
   // Google Sheets API:
   google_sheets_api_url: '${process.env.GOOGLE_SHEETS_API_URL}',
   google_sheets_sheet_id: '${process.env.GOOGLE_SHEETS_SHEET_ID}',

@@ -9,11 +9,11 @@ import { OffersService } from "src/app/services/offers.service";
 import { TranslatableStringService } from "src/app/services/translatable-string.service";
 
 @Component({
-    selector: "app-racism-support",
-    templateUrl: "racism-support.page.html",
-    styleUrls: ["racism-support.page.scss"],
+    selector: "app-keep-being-anti-racist",
+    templateUrl: "keep-being-anti-racist.page.html",
+    styleUrls: ["keep-being-anti-racist.page.scss"],
 })
-export class RacismSupportPage {
+export class KeepBeingAntiRacistPage {
     public offers: Offer[];
     public categories: Category[];
     public subCategories: SubCategory[];
@@ -29,15 +29,15 @@ export class RacismSupportPage {
         public translatableString: TranslatableStringService,
         public modalController: ModalController
     ) {
-        this.loadRacismSupportData();
+        this.loadKeepBeingAntiRacistData();
     }
 
-    private loadRacismSupportData() {
-        this.offersService.getCategories().then((categories) => {
+    private loadKeepBeingAntiRacistData() {
+        this.offersService.getCategories().then(categories => {
             this.categories = this.translateCategories(categories);
-            this.offersService.getSubCategories().then((subCategories) => {
+            this.offersService.getSubCategories().then(subCategories => {
                 this.subCategories = this.translateSubCategories(subCategories);
-                this.offersService.getOffers().then((offers) => {
+                this.offersService.getOffers().then(offers => {
                     this.offers = this.translateOffers(offers);
                     this.readQueryParams();
                 });
@@ -80,23 +80,23 @@ export class RacismSupportPage {
     }
 
     private readQueryParams() {
-        this.route.queryParams.subscribe((params) => {
+        this.route.queryParams.subscribe(params => {
             if ("categoryID" in params) {
                 this.category = this.categories.find(
-                    (category) =>
+                    category =>
                         category.categoryID === Number(params.categoryID)
                 );
             }
             if ("subCategoryID" in params) {
                 this.subCategory = this.subCategories.find(
-                    (subCategory) =>
+                    subCategory =>
                         subCategory.subCategoryID ===
                         Number(params.subCategoryID)
                 );
             }
             if ("offerID" in params) {
                 this.offer = this.offers.find(
-                    (offer) => offer.offerID === Number(params.offerID)
+                    offer => offer.offerID === Number(params.offerID)
                 );
             }
         });

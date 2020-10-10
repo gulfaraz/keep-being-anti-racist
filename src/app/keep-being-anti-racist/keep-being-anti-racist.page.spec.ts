@@ -8,16 +8,16 @@ import { OfferComponent } from "src/app/components/offer/offer.component";
 import { SubCategoryComponent } from "src/app/components/sub-category/sub-category.component";
 import { CategoryFilterPipe } from "src/app/pipes/category-filter.pipe";
 import { SubCategoryFilterPipe } from "src/app/pipes/sub-category-filter.pipe";
-import { RacismSupportPage } from "./racism-support.page";
+import { KeepBeingAntiRacistPage } from "./keep-being-anti-racist.page";
 
-describe("RacismSupportPage", () => {
-    let component: RacismSupportPage;
-    let fixture: ComponentFixture<RacismSupportPage>;
+describe("KeepBeingAntiRacistPage", () => {
+    let component: KeepBeingAntiRacistPage;
+    let fixture: ComponentFixture<KeepBeingAntiRacistPage>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
-                RacismSupportPage,
+                KeepBeingAntiRacistPage,
                 CategoryComponent,
                 SubCategoryComponent,
                 OfferComponent,
@@ -35,7 +35,7 @@ describe("RacismSupportPage", () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(RacismSupportPage);
+        fixture = TestBed.createComponent(KeepBeingAntiRacistPage);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

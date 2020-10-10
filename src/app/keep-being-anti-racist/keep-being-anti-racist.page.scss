@@ -1,23 +1,35 @@
 ion-header {
-  --ion-background-color: #ffc001;
+    --ion-background-color: var(--ion-color-kbar);
+    position: initial;
+
+    ion-title {
+        height: 200px;
+        width: 300px;
+        margin: auto;
+
+        ion-img {
+            position: relative;
+            top: 15px;
+        }
+    }
 }
 
 ion-content {
-  --ion-background-color: #f6f0eb;
+    --ion-background-color: var(--ion-color-kbar);
 }
 
 ion-card {
-  width: 300px;
-  margin: 5% auto;
-  background: #ffffff;
+    width: 300px;
+    margin: 5% auto;
+    background: #ffffff;
 }
 
 a {
-  text-decoration: underline;
-  cursor: pointer;
+    text-decoration: underline;
+    cursor: pointer;
 
-  &:hover,
-  &:focus {
-    color: #3171e0;
-  }
+    &:hover,
+    &:focus {
+        color: #3171e0;
+    }
 }

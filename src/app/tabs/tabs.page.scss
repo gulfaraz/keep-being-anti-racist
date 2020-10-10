@@ -1,5 +1,6 @@
 ion-tab-bar {
     border-bottom: none;
+    display: none;
 }
 
 ion-tab-button {
@@ -8,8 +9,8 @@ ion-tab-button {
     }
 
     &#tab-button-keep-being-anti-racist {
-        --color: var(--ion-color-dark-contrast);
-        --color-selected: var(--ion-color-dark-contrast);
-        --background: #ffc001;
+        --color: var(--ion-color-kbar-contrast);
+        --color-selected: var(--ion-color-kbar-contrast);
+        --background: var(--ion-color-kbar);
     }
 }

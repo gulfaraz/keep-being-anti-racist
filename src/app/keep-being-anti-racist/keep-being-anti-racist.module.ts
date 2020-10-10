@@ -5,17 +5,19 @@ import { RouterModule } from "@angular/router";
 import { IonicModule } from "@ionic/angular";
 import { HelpPage } from "src/app/help/help.page";
 import { SharedModule } from "src/app/shared/shared.module";
-import { RacismSupportPage } from "./racism-support.page";
+import { KeepBeingAntiRacistPage } from "./keep-being-anti-racist.page";
 
 @NgModule({
     imports: [
         IonicModule,
         CommonModule,
         FormsModule,
-        RouterModule.forChild([{ path: "", component: RacismSupportPage }]),
+        RouterModule.forChild([
+            { path: "", component: KeepBeingAntiRacistPage },
+        ]),
         SharedModule,
     ],
-    declarations: [RacismSupportPage, HelpPage],
+    declarations: [KeepBeingAntiRacistPage, HelpPage],
     entryComponents: [HelpPage],
 })
-export class RacismSupportPageModule {}
+export class KeepBeingAntiRacistPageModule {}

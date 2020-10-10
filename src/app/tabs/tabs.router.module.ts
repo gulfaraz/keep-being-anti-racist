@@ -13,7 +13,7 @@ const routes: Routes = [
                     {
                         path: "",
                         loadChildren:
-                            "../racism-support/racism-support.module#RacismSupportPageModule",
+                            "../keep-being-anti-racist/keep-being-anti-racist.module#KeepBeingAntiRacistPageModule",
                     },
                 ],
             },

@@ -1,14 +1,17 @@
 <ion-header>
     <ion-toolbar>
         <ion-title class="ion-text-center">
-            {{ 'tabs.keep-being-anti-racist-title'| translate }}
+            <ion-img
+                src="/assets/icons/KBAR_LOGO.svg"
+                [alt]="'tabs.keep-being-anti-racist-title'| translate"
+            ></ion-img>
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <div>
-        <div *ngIf="!category">
+        <div *ngIf="!category" class="ion-text-center">
             <category
                 *ngFor="let _category of categories"
                 [category]="_category"

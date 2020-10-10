@@ -9,11 +9,8 @@
 <ion-content>
     <ion-grid>
         <ion-row>
-            <ion-col class="help-image-column">
-                <ion-img class="help-image" [src]="help.helpIcon"></ion-img>
-            </ion-col>
             <ion-col>
-                <p>{{ help.helpText }}</p>
+                <p class="preserve-space">{{ help.helpText }}</p>
                 <p>
                     <ion-icon class="help-call-icon" name="call"></ion-icon> {{
                     help.helpPhoneLabel }}:

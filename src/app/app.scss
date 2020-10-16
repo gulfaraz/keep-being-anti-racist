@@ -6,12 +6,12 @@
 // and used throughout the application.
 
 .loading-indicator {
-  display: flex;
-  min-height: 100px;
-  justify-content: center;
+    display: flex;
+    min-height: 100px;
+    justify-content: center;
 }
 .loading-indicator--spinner {
-  margin: auto;
+    margin: auto;
 }
 
 // ----------------------------------------------------------------------------
@@ -20,5 +20,10 @@
 // Make an exception for 'native' inputs in 'items':
 *:not(ion-item) > ion-input,
 ion-textarea {
-  --background: #dfe5fe !important;
+    --background: #dfe5fe !important;
+}
+
+.share-popover {
+    --width: 80%;
+    --max-width: 600px;
 }

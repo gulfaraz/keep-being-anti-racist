@@ -82,6 +82,18 @@
                 (click)="goBack()"
             ></ion-back-button>
         </ion-buttons>
+        <ion-buttons slot="start" *ngIf="!category">
+            <ion-button disabled="disabled">
+                <ion-icon slot="icon-only" name="invisible"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons class="ion-justify-content-center">
+            <ion-button (click)="openSharePopover()">
+                <ion-icon slot="icon-only" name="ios-share"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
         <ion-buttons slot="end">
             <ion-button (click)="openHelpModal()">
                 <ion-icon slot="icon-only" name="help"></ion-icon>

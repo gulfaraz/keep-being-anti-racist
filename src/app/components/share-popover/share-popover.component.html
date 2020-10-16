@@ -1,0 +1,83 @@
+<ion-card color="kbar">
+    <ion-card-header>
+        <ion-card-subtitle>
+            <ion-icon
+                size="large"
+                name="close-circle"
+                class="ion-float-right"
+                (click)="closePopover()"
+            ></ion-icon
+        ></ion-card-subtitle>
+        <ion-card-title> Share this page </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-button
+                        expand="block"
+                        color="facebook"
+                        href="https://www.facebook.com/share.php?u={{ url }}"
+                    >
+                        <ion-icon slot="start" name="logo-facebook"></ion-icon>
+                        Facebook
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button
+                        expand="block"
+                        color="twitter"
+                        href="https://twitter.com/intent/tweet?text=Keep%20Being%20Anti-Racist&url={{
+                            url
+                        }}&hashtags=keepbeingantiracist%2Cantiracism"
+                    >
+                        <ion-icon slot="start" name="logo-twitter"></ion-icon>
+                        Twitter
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button
+                        expand="block"
+                        color="linkedin"
+                        href="https://www.linkedin.com/sharing/share-offsite/?url={{
+                            url
+                        }}"
+                    >
+                        <ion-icon slot="start" name="logo-linkedin"></ion-icon>
+                        LinkedIn
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button
+                        expand="block"
+                        color="secondary"
+                        href="mailto:?subject=Keep%20Being%20Anti-Racist&body={{
+                            url
+                        }}"
+                    >
+                        <ion-icon slot="start" name="mail"></ion-icon>
+                        Email
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-item>
+                        <ion-label>{{ url }}</ion-label>
+                        <ion-button
+                            slot="end"
+                            color="tertiary"
+                            (click)="copyMessage(url)"
+                        >
+                            <ion-icon slot="start" name="copy"></ion-icon>
+                            Copy
+                        </ion-button>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card-content>
+</ion-card>

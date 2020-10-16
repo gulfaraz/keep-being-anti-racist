@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ModalController } from "@ionic/angular";
+import { ModalController, PopoverController } from "@ionic/angular";
+import { SharePopoverComponent } from "src/app/components/share-popover/share-popover.component";
 import { HelpPage } from "src/app/help/help.page";
 import { Category } from "src/app/models/category.model";
 import { Offer } from "src/app/models/offer.model";
@@ -22,12 +23,15 @@ export class KeepBeingAntiRacistPage {
     public subCategory: SubCategory;
     public offer: Offer;
 
+    private windowNavigator: any = navigator;
+
     constructor(
         public offersService: OffersService,
         private route: ActivatedRoute,
         private router: Router,
         public translatableString: TranslatableStringService,
-        public modalController: ModalController
+        public modalController: ModalController,
+        public popoverController: PopoverController
     ) {
         this.loadKeepBeingAntiRacistData();
     }
@@ -151,5 +155,37 @@ export class KeepBeingAntiRacistPage {
             component: HelpPage,
         });
         return await helpModal.present();
+    }
+
+    openSharePopover() {
+        const url = window.location.href;
+        if (this.windowNavigator.share) {
+            this.windowNavigator
+                .share({
+                    title: "Keep Being Anti-Racist",
+                    url: url,
+                })
+                .then(() => {
+                    console.log("Thank you for being anti-racist!");
+                })
+                .catch(console.error);
+        } else {
+            this.presentPopover(url);
+        }
+    }
+
+    async presentPopover(url: string) {
+        const popover = await this.popoverController.create({
+            component: SharePopoverComponent,
+            animated: true,
+            cssClass: "share-popover",
+            translucent: true,
+            showBackdrop: true,
+            componentProps: {
+                url: url,
+            },
+        });
+
+        return await popover.present();
     }
 }

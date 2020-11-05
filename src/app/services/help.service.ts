@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Help } from 'src/app/models/help.model';
-import { SpreadsheetService } from './spreadsheet.service';
+import { Injectable } from "@angular/core";
+import { Help } from "src/app/models/help.model";
+import { SpreadsheetService } from "./spreadsheet.service";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class HelpService {
   constructor(private spreadsheetService: SpreadsheetService) {}

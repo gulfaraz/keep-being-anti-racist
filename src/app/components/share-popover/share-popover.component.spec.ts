@@ -4,28 +4,28 @@ import { PopoverController } from "@ionic/angular";
 import { SharePopoverComponent } from "./share-popover.component";
 
 describe("SharePopoverComponent", () => {
-    let component: SharePopoverComponent;
-    let fixture: ComponentFixture<SharePopoverComponent>;
+  let component: SharePopoverComponent;
+  let fixture: ComponentFixture<SharePopoverComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [SharePopoverComponent],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
-            providers: [
-                {
-                    provide: PopoverController,
-                },
-            ],
-        }).compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [SharePopoverComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        {
+          provide: PopoverController,
+        },
+      ],
+    }).compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(SharePopoverComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(SharePopoverComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
 });

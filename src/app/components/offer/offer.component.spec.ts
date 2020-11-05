@@ -1,9 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import mockOffer from 'src/app/mocks/offer.mock';
-import { OfferComponent } from './offer.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import mockOffer from "src/app/mocks/offer.mock";
+import { OfferComponent } from "./offer.component";
 
-describe('OfferComponent', () => {
+describe("OfferComponent", () => {
   let component: OfferComponent;
   let fixture: ComponentFixture<OfferComponent>;
 
@@ -21,7 +21,7 @@ describe('OfferComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

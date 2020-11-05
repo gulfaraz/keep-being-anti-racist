@@ -1,16 +1,16 @@
 ion-tab-bar {
-    border-bottom: none;
-    display: none;
+  border-bottom: none;
+  display: none;
 }
 
 ion-tab-button {
-    &.tab-disabled {
-        opacity: 0.6;
-    }
+  &.tab-disabled {
+    opacity: 0.6;
+  }
 
-    &#tab-button-keep-being-anti-racist {
-        --color: var(--ion-color-kbar-contrast);
-        --color-selected: var(--ion-color-kbar-contrast);
-        --background: var(--ion-color-kbar);
-    }
+  &#tab-button-keep-being-anti-racist {
+    --color: var(--ion-color-kbar-contrast);
+    --color-selected: var(--ion-color-kbar-contrast);
+    --background: var(--ion-color-kbar);
+  }
 }

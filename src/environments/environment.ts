@@ -3,14 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    production: false,
+  production: false,
 
-    // Feature-switches:
-    isDebug: true, // Controls debugging features
-    showDebug: false, // Controls debugging features
-    useAnimation: false, // Use animations and delays in the interface
+  // Feature-switches:
+  isDebug: true, // Controls debugging features
+  showDebug: false, // Controls debugging features
+  useAnimation: false, // Use animations and delays in the interface
 
-    // Google Sheets:
-    google_sheets_api_url: "https://spreadsheets.google.com/feeds/list",
-    google_sheets_sheet_id: "1u9THKupvSga1Tppqi_IFV-8C2HIAQR5hehnuyzhuYw8",
+  // Google Sheets:
+  google_sheets_api_url: "https://spreadsheets.google.com/feeds/list",
+  google_sheets_sheet_id: "1u9THKupvSga1Tppqi_IFV-8C2HIAQR5hehnuyzhuYw8",
 };

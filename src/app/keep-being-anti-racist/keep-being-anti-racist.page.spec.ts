@@ -11,39 +11,39 @@ import { SubCategoryFilterPipe } from "src/app/pipes/sub-category-filter.pipe";
 import { KeepBeingAntiRacistPage } from "./keep-being-anti-racist.page";
 
 describe("KeepBeingAntiRacistPage", () => {
-    let component: KeepBeingAntiRacistPage;
-    let fixture: ComponentFixture<KeepBeingAntiRacistPage>;
+  let component: KeepBeingAntiRacistPage;
+  let fixture: ComponentFixture<KeepBeingAntiRacistPage>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [
-                KeepBeingAntiRacistPage,
-                CategoryComponent,
-                SubCategoryComponent,
-                OfferComponent,
-                CategoryFilterPipe,
-                SubCategoryFilterPipe,
-            ],
-            imports: [TranslateModule.forRoot(), RouterModule.forRoot([])],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
-            providers: [
-                {
-                    provide: ModalController,
-                },
-                {
-                    provide: PopoverController,
-                },
-            ],
-        }).compileComponents();
-    }));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        KeepBeingAntiRacistPage,
+        CategoryComponent,
+        SubCategoryComponent,
+        OfferComponent,
+        CategoryFilterPipe,
+        SubCategoryFilterPipe,
+      ],
+      imports: [TranslateModule.forRoot(), RouterModule.forRoot([])],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
+        {
+          provide: ModalController,
+        },
+        {
+          provide: PopoverController,
+        },
+      ],
+    }).compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(KeepBeingAntiRacistPage);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(KeepBeingAntiRacistPage);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-    it("should create", () => {
-        expect(component).toBeTruthy();
-    });
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
 });

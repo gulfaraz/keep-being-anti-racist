@@ -1,9 +1,9 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { Offer } from 'src/app/models/offer.model';
-import { SubCategory } from 'src/app/models/sub-category.model';
+import { Pipe, PipeTransform } from "@angular/core";
+import { Offer } from "src/app/models/offer.model";
+import { SubCategory } from "src/app/models/sub-category.model";
 
 @Pipe({
-  name: 'subCategoryFilter',
+  name: "subCategoryFilter",
 })
 export class SubCategoryFilterPipe implements PipeTransform {
   transform(items: Array<Offer>, subCategory: SubCategory): any {
@@ -11,7 +11,7 @@ export class SubCategoryFilterPipe implements PipeTransform {
       return items;
     }
     return items.filter(
-      (item) => item.subCategoryID === subCategory.subCategoryID,
+      (item) => item.subCategoryID === subCategory.subCategoryID
     );
   }
 }

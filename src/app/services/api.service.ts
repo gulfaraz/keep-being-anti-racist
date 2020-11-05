@@ -1,29 +1,29 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { JwtService } from './jwt.service';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { tap } from "rxjs/operators";
+import { JwtService } from "./jwt.service";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class ApiService {
   constructor(private jwtService: JwtService, private http: HttpClient) {}
 
   private showSecurity(anonymous: boolean) {
-    return anonymous ? '🌐' : '🔐';
+    return anonymous ? "🌐" : "🔐";
   }
 
   private createHeaders(anonymous: boolean = false): HttpHeaders {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
+      "Content-Type": "application/json",
+      Accept: "application/json",
     });
 
     if (!anonymous) {
       return headers.set(
-        'Authorization',
-        `Token ${this.jwtService.getToken()}`,
+        "Authorization",
+        `Token ${this.jwtService.getToken()}`
       );
     }
 
@@ -33,7 +33,7 @@ export class ApiService {
   get(
     endpoint: string,
     path: string,
-    anonymous: boolean = false,
+    anonymous: boolean = false
   ): Observable<any> {
     const security = this.showSecurity(anonymous);
     console.log(`ApiService GET: ${security} ${endpoint}${path}`);
@@ -47,9 +47,9 @@ export class ApiService {
           console.log(
             `ApiService GET: ${security} ${endpoint}${path}`,
             `\nResponse:`,
-            response,
-          ),
-        ),
+            response
+          )
+        )
       );
   }
 
@@ -57,7 +57,7 @@ export class ApiService {
     endpoint: string,
     path: string,
     body: object,
-    anonymous: boolean = false,
+    anonymous: boolean = false
   ): Observable<any> {
     const security = this.showSecurity(anonymous);
     console.log(`ApiService POST: ${security} ${endpoint}${path}`, body);
@@ -72,9 +72,9 @@ export class ApiService {
             `ApiService POST: ${security} ${endpoint}${path}:`,
             body,
             `\nResponse:`,
-            response,
-          ),
-        ),
+            response
+          )
+        )
       );
   }
 }

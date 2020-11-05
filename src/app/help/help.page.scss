@@ -1,50 +1,50 @@
 ion-header {
-    --ion-background-color: var(--ion-color-kbar-contrast);
+  --ion-background-color: var(--ion-color-kbar-contrast);
 
-    ion-title {
-        color: var(--ion-color-light);
-        font-size: 28px;
-        line-height: 84px;
-    }
+  ion-title {
+    color: var(--ion-color-light);
+    font-size: 28px;
+    line-height: 84px;
+  }
 }
 
 ion-content {
-    --ion-background-color: var(--ion-color-kbar);
+  --ion-background-color: var(--ion-color-kbar);
 }
 
 .help-image-column {
-    flex-grow: 0;
+  flex-grow: 0;
 
-    .help-image {
-        width: 100px;
-        height: 100px;
-        margin: 15px auto;
-        background: white;
-    }
+  .help-image {
+    width: 100px;
+    height: 100px;
+    margin: 15px auto;
+    background: white;
+  }
 }
 
 .preserve-space {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 .help-call-icon {
-    font-size: 18px;
-    vertical-align: bottom;
+  font-size: 18px;
+  vertical-align: bottom;
 }
 
 .help-back-icon {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .help-social-image {
-    height: 64px;
-    width: 64px;
-    display: inline-block;
-    margin: 16px;
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+  margin: 16px;
 
-    &.help-whatsapp-image {
-        height: 96px;
-        width: 96px;
-        margin: 0;
-    }
+  &.help-whatsapp-image {
+    height: 96px;
+    width: 96px;
+    margin: 0;
+  }
 }

@@ -10,6 +10,13 @@
 </ion-header>
 
 <ion-content>
+    <ion-card *ngIf="!category" class="kbar-greeting-card">
+        <ion-card-header class="ion-no-margin ion-no-padding ion-text-center">
+            <ion-card-title>
+                <h2>{{ homeData.homeGreeting }}</h2>
+            </ion-card-title>
+        </ion-card-header>
+    </ion-card>
     <div>
         <div *ngIf="!category" class="ion-text-center">
             <category

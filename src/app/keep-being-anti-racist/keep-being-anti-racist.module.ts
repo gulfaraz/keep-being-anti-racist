@@ -9,16 +9,14 @@ import { SharedModule } from "src/app/shared/shared.module";
 import { KeepBeingAntiRacistPage } from "./keep-being-anti-racist.page";
 
 @NgModule({
-    imports: [
-        IonicModule,
-        CommonModule,
-        FormsModule,
-        RouterModule.forChild([
-            { path: "", component: KeepBeingAntiRacistPage },
-        ]),
-        SharedModule,
-    ],
-    declarations: [KeepBeingAntiRacistPage, HelpPage, SharePopoverComponent],
-    entryComponents: [HelpPage, SharePopoverComponent],
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    RouterModule.forChild([{ path: "", component: KeepBeingAntiRacistPage }]),
+    SharedModule,
+  ],
+  declarations: [KeepBeingAntiRacistPage, HelpPage, SharePopoverComponent],
+  entryComponents: [HelpPage, SharePopoverComponent],
 })
 export class KeepBeingAntiRacistPageModule {}

@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { TranslatableString } from '../models/translatable-string.model';
+import { Injectable } from "@angular/core";
+import { TranslateService } from "@ngx-translate/core";
+import { TranslatableString } from "../models/translatable-string.model";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class TranslatableStringService {
   private fallbackLanguageCode: string;
@@ -14,10 +14,10 @@ export class TranslatableStringService {
 
   public get(property: TranslatableString | string): string {
     if (!property) {
-      return '';
+      return "";
     }
 
-    if (typeof property !== 'object') {
+    if (typeof property !== "object") {
       return property;
     }
 

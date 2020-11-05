@@ -1,10 +1,10 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ModalController } from '@ionic/angular';
-import { TranslateModule } from '@ngx-translate/core';
-import { HelpPage } from './help.page';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { ModalController } from "@ionic/angular";
+import { TranslateModule } from "@ngx-translate/core";
+import { HelpPage } from "./help.page";
 
-describe('HelpPage', () => {
+describe("HelpPage", () => {
   let component: HelpPage;
   let fixture: ComponentFixture<HelpPage>;
 
@@ -27,7 +27,7 @@ describe('HelpPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,9 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateModule } from '@ngx-translate/core';
-import { TabsPage } from './tabs.page';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { TranslateModule } from "@ngx-translate/core";
+import { TabsPage } from "./tabs.page";
 
-describe('TabsPage', () => {
+describe("TabsPage", () => {
   let component: TabsPage;
   let fixture: ComponentFixture<TabsPage>;
 
@@ -21,7 +21,7 @@ describe('TabsPage', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

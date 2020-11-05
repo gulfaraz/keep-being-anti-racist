@@ -1,32 +1,32 @@
-import { LOCATION_INITIALIZED } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER, Injector, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { IonicStorageModule } from '@ionic/storage';
+import { LOCATION_INITIALIZED } from "@angular/common";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { APP_INITIALIZER, Injector, NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouteReuseStrategy } from "@angular/router";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
+import { IonicStorageModule } from "@ionic/storage";
 import {
   TranslateLoader,
   TranslateModule,
   TranslateService,
-} from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+} from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { environment } from "../environments/environment";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
 
 export function appInitializerFactory(
   translate: TranslateService,
-  injector: Injector,
+  injector: Injector
 ) {
-  const langToSet = 'en';
+  const langToSet = "en";
 
   return () =>
     new Promise<any>((resolve: any) => {
       const locationInitialized = injector.get(
         LOCATION_INITIALIZED,
-        Promise.resolve(null),
+        Promise.resolve(null)
       );
       locationInitialized.then(() => {
         translate.setDefaultLang(langToSet);
@@ -37,19 +37,19 @@ export function appInitializerFactory(
           (err) => {
             console.log(
               `Problem with '${langToSet}' language initialization: `,
-              err,
+              err
             );
           },
           () => {
             resolve(null);
-          },
+          }
         );
       });
     });
 }
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/');
+  return new TranslateHttpLoader(http, "./assets/i18n/");
 }
 
 @NgModule({
@@ -58,7 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     IonicModule.forRoot({
-      mode: 'md',
+      mode: "md",
     }),
     AppRoutingModule,
     HttpClientModule,
@@ -70,7 +70,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
     IonicStorageModule.forRoot(),
-    ServiceWorkerModule.register('ngsw-worker.js', {
+    ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production,
     }),
   ],

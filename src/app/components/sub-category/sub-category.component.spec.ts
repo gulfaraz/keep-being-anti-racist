@@ -1,9 +1,9 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import mockSubCategory from 'src/app/mocks/sub-category.mock';
-import { SubCategoryComponent } from './sub-category.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import mockSubCategory from "src/app/mocks/sub-category.mock";
+import { SubCategoryComponent } from "./sub-category.component";
 
-describe('SubCategoryComponent', () => {
+describe("SubCategoryComponent", () => {
   let component: SubCategoryComponent;
   let fixture: ComponentFixture<SubCategoryComponent>;
 
@@ -21,7 +21,7 @@ describe('SubCategoryComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

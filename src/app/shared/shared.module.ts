@@ -10,26 +10,21 @@ import { CategoryFilterPipe } from "src/app/pipes/category-filter.pipe";
 import { SubCategoryFilterPipe } from "src/app/pipes/sub-category-filter.pipe";
 
 @NgModule({
-    declarations: [
-        CategoryComponent,
-        SubCategoryComponent,
-        OfferComponent,
-        CategoryFilterPipe,
-        SubCategoryFilterPipe,
-    ],
-    imports: [
-        CommonModule,
-        IonicModule,
-        FormsModule,
-        TranslateModule.forChild(),
-    ],
-    exports: [
-        CategoryComponent,
-        SubCategoryComponent,
-        OfferComponent,
-        TranslateModule,
-        CategoryFilterPipe,
-        SubCategoryFilterPipe,
-    ],
+  declarations: [
+    CategoryComponent,
+    SubCategoryComponent,
+    OfferComponent,
+    CategoryFilterPipe,
+    SubCategoryFilterPipe,
+  ],
+  imports: [CommonModule, IonicModule, FormsModule, TranslateModule.forChild()],
+  exports: [
+    CategoryComponent,
+    SubCategoryComponent,
+    OfferComponent,
+    TranslateModule,
+    CategoryFilterPipe,
+    SubCategoryFilterPipe,
+  ],
 })
 export class SharedModule {}

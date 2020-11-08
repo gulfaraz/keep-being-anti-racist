@@ -1,11 +1,10 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title class="ion-text-center">
-            <ion-img
-                src="/assets/icons/KBAR_LOGO.svg"
-                [alt]="'tabs.keep-being-anti-racist-title'| translate"
-            ></ion-img>
-        </ion-title>
+        <a href="/" title="KBAR">
+            <ion-title class="ion-text-center">
+                <ion-img src="/assets/icons/KBAR_LOGO.svg" alt="KBAR"></ion-img>
+            </ion-title>
+        </a>
     </ion-toolbar>
 </ion-header>
 
@@ -13,72 +12,90 @@
     <ion-card *ngIf="!category" class="kbar-greeting-card">
         <ion-card-header class="ion-no-margin ion-no-padding ion-text-center">
             <ion-card-title>
-                <h2>{{ homeData.homeGreeting }}</h2>
+                <h2>
+                    <ion-skeleton-text
+                        *ngIf="loadingHomeData"
+                        animated
+                    ></ion-skeleton-text>
+                    <ion-text *ngIf="!loadingHomeData">
+                        {{ homeData.homeGreeting }}
+                    </ion-text>
+                </h2>
             </ion-card-title>
         </ion-card-header>
     </ion-card>
-    <div>
-        <div *ngIf="!category" class="ion-text-center">
-            <category
-                *ngFor="let _category of categories"
-                [category]="_category"
-                (click)="clickCategory(_category)"
-            ></category>
+    <section>
+        <div
+            class="ion-text-center ion-margin ion-padding"
+            *ngIf="loadingOffers"
+        >
+            <ion-spinner name="bubbles"></ion-spinner>
         </div>
-        <div *ngIf="category && !subCategory">
-            <category
-                [category]="category"
-                [showDescription]="true"
-                (click)="goBack()"
-            ></category>
-        </div>
-        <div *ngIf="category && !subCategory">
-            <sub-category
-                *ngFor="let _subCategory of subCategories | categoryFilter: category"
-                [subCategory]="_subCategory"
-                [showRightDescription]="false"
-                [showBottomDescription]="true"
-                (click)="clickSubCategory(_subCategory)"
-            ></sub-category>
-        </div>
-        <div *ngIf="category && subCategory">
-            <sub-category
-                [subCategory]="subCategory"
-                [showRightDescription]="true && !offer"
-                [showBottomDescription]="false"
-                (click)="goBack()"
-            ></sub-category>
-        </div>
-    </div>
-    <div *ngIf="category && subCategory && !offer">
-        <offer
-            *ngFor="let _offer of offers | categoryFilter: category | subCategoryFilter: subCategory"
-            [offer]="_offer"
-            (click)="clickOffer(_offer)"
-        ></offer>
-    </div>
-    <div *ngIf="category && subCategory && offer">
-        <offer
-            [offer]="offer"
-            [showDetails]="true"
-            [goBack]="goBack.bind(this)"
-            (click)="clickOffer(offer)"
-        ></offer>
-    </div>
-    <div
-        *ngIf="categories?.length === 0 || subCategories?.length === 0 || offers?.length === 0"
-    >
-        <ion-card class="ion-text-center">
-            <ion-card-header>
-                <ion-card-subtitle>Data Unavailable</ion-card-subtitle>
-            </ion-card-header>
+        <div *ngIf="!loadingOffers">
+            <div>
+                <div *ngIf="!category" class="ion-text-center">
+                    <category
+                        *ngFor="let _category of categories"
+                        [category]="_category"
+                        (click)="clickCategory(_category)"
+                    ></category>
+                </div>
+                <div *ngIf="category && !subCategory">
+                    <category
+                        [category]="category"
+                        [showDescription]="true"
+                        (click)="goBack()"
+                    ></category>
+                </div>
+                <div *ngIf="category && !subCategory">
+                    <sub-category
+                        *ngFor="let _subCategory of subCategories | categoryFilter: category"
+                        [subCategory]="_subCategory"
+                        [showRightDescription]="false"
+                        [showBottomDescription]="true"
+                        (click)="clickSubCategory(_subCategory)"
+                    ></sub-category>
+                </div>
+                <div *ngIf="category && subCategory">
+                    <sub-category
+                        [subCategory]="subCategory"
+                        [showRightDescription]="true && !offer"
+                        [showBottomDescription]="false"
+                        (click)="goBack()"
+                    ></sub-category>
+                </div>
+            </div>
+            <div *ngIf="category && subCategory && !offer">
+                <offer
+                    *ngFor="let _offer of offers | categoryFilter: category | subCategoryFilter: subCategory"
+                    [offer]="_offer"
+                    (click)="clickOffer(_offer)"
+                ></offer>
+            </div>
+            <div *ngIf="category && subCategory && offer">
+                <offer
+                    [offer]="offer"
+                    [showDetails]="true"
+                    [goBack]="goBack.bind(this)"
+                    (click)="clickOffer(offer)"
+                ></offer>
+            </div>
+            <div
+                *ngIf="categories?.length === 0 || subCategories?.length === 0 || offers?.length === 0"
+            >
+                <ion-card class="ion-text-center">
+                    <ion-card-header>
+                        <ion-card-subtitle>Data Unavailable</ion-card-subtitle>
+                    </ion-card-header>
 
-            <ion-card-content>
-                Please reach out to us via
-                <a (click)="openHelpModal()">our help page</a>.
-            </ion-card-content>
-        </ion-card>
-    </div>
+                    <ion-card-content>
+                        Please reach out to us via
+                        <a (click)="openHelpModal()">our help page</a>.
+                    </ion-card-content>
+                </ion-card>
+            </div>
+        </div>
+    </section>
 </ion-content>
 
 <ion-footer>

@@ -11,6 +11,7 @@ import { HelpService } from "src/app/services/help.service";
 })
 export class HelpPage {
   public help: Help = helpMock;
+  public loadingHelpData: boolean = false;
 
   constructor(
     public modalController: ModalController,
@@ -20,8 +21,10 @@ export class HelpPage {
   }
 
   loadHelpDetails() {
+    this.loadingHelpData = true;
     this.helpService.getHelp().then((help) => {
       this.help = help;
+      this.loadingHelpData = false;
     });
   }
 

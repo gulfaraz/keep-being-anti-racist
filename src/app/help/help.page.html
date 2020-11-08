@@ -1,6 +1,9 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title class="ion-text-center"> {{ help.helpTitle }} </ion-title>
+        <ion-title class="ion-text-center">
+            <ion-spinner *ngIf="loadingHelpData" name="dots"></ion-spinner>
+            <ion-text *ngIf="!loadingHelpData">{{ help.helpTitle }}</ion-text>
+        </ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -8,15 +11,70 @@
     <ion-grid>
         <ion-row>
             <ion-col>
-                <p class="preserve-space">{{ help.helpText }}</p>
+                <p class="preserve-space">
+                    <ion-text *ngIf="loadingHelpData">
+                        <ion-skeleton-text
+                            style="width: 20%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 100%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 100%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 100%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 50%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 0%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 100%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 100%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 100%"
+                            animated
+                        ></ion-skeleton-text>
+                        <ion-skeleton-text
+                            style="width: 50%"
+                            animated
+                        ></ion-skeleton-text>
+                    </ion-text>
+                    <ion-text *ngIf="!loadingHelpData">
+                        {{ help.helpText }}
+                    </ion-text>
+                </p>
                 <p>
-                    <ion-icon class="help-call-icon" name="call"></ion-icon> {{
-                    help.helpPhoneLabel }}:
-                    <a href="tel:{{ help.helpPhone }}">{{ help.helpPhone }}</a>
+                    <ion-skeleton-text
+                        *ngIf="loadingHelpData"
+                        style="width: 50%"
+                        animated
+                    ></ion-skeleton-text>
+                    <ion-text *ngIf="!loadingHelpData">
+                        <ion-icon class="help-call-icon" name="call"></ion-icon>
+                        {{ help.helpPhoneLabel }}:
+                        <a href="tel:{{ help.helpPhone }}"
+                            >{{ help.helpPhone }}</a
+                        >
+                    </ion-text>
                 </p>
             </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngIf="!loadingHelpData">
             <ion-col>
                 <a href="{{ help.helpWhatsApp }}" *ngIf="help.helpWhatsApp">
                     <ion-img

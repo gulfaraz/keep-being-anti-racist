@@ -28,6 +28,8 @@ export class KeepBeingAntiRacistPage {
   public homeData: Home = homeMock;
 
   private windowNavigator: any = navigator;
+  public loadingHomeData: boolean = false;
+  public loadingOffers: boolean = false;
 
   constructor(
     public offersService: OffersService,
@@ -41,8 +43,11 @@ export class KeepBeingAntiRacistPage {
   }
 
   private loadKeepBeingAntiRacistData() {
+    this.loadingHomeData = true;
+    this.loadingOffers = true;
     this.homeDataService.getHomeData().then((homeData) => {
       this.homeData = homeData;
+      this.loadingHomeData = false;
       this.offersService.getCategories().then((categories) => {
         this.categories = categories;
         this.offersService.getSubCategories().then((subCategories) => {
@@ -50,6 +55,7 @@ export class KeepBeingAntiRacistPage {
           this.offersService.getOffers().then((offers) => {
             this.offers = offers;
             this.readQueryParams();
+            this.loadingOffers = false;
           });
         });
       });

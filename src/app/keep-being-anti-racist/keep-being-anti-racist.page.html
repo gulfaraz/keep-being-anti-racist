@@ -1,10 +1,20 @@
 <ion-header>
     <ion-toolbar>
-        <a href="/" title="KBAR">
-            <ion-title class="ion-text-center">
-                <ion-img src="/assets/icons/KBAR_LOGO.svg" alt="KBAR"></ion-img>
-            </ion-title>
-        </a>
+        <ion-segment
+            (ionChange)="segmentChanged($event)"
+            [value]="Segment.AR"
+            color="dark"
+        >
+            <ion-segment-button [value]="Segment.AR">
+                <ion-img src="/assets/icons/AR.svg" alt="AR"></ion-img>
+            </ion-segment-button>
+            <ion-segment-button [value]="Segment.BAR">
+                <ion-img src="/assets/icons/BAR.svg" alt="BAR"></ion-img>
+            </ion-segment-button>
+            <ion-segment-button [value]="Segment.KBAR">
+                <ion-img src="/assets/icons/KBAR.svg" alt="KBAR"></ion-img>
+            </ion-segment-button>
+        </ion-segment>
     </ion-toolbar>
 </ion-header>
 
@@ -13,12 +23,52 @@
         <ion-card-header class="ion-no-margin ion-no-padding ion-text-center">
             <ion-card-title>
                 <h2>
-                    <ion-skeleton-text
-                        *ngIf="loadingHomeData"
-                        animated
-                    ></ion-skeleton-text>
+                    <div *ngIf="loadingHomeData">
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                        <br />
+                        <br />
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </div>
                     <ion-text *ngIf="!loadingHomeData">
-                        {{ homeData.homeGreeting }}
+                        <ion-text *ngIf="segment == Segment.AR">
+                            {{ homeData.homeAR }}
+                            <ion-button
+                                size="small"
+                                color="dark"
+                                fill="solid"
+                                class="ion-margin-start"
+                                [href]="homeData.homeARLink"
+                            >
+                                {{ homeData.homeARLabel }}
+                            </ion-button>
+                        </ion-text>
+                        <ion-text *ngIf="segment == Segment.BAR">
+                            {{ homeData.homeBAR }}
+                            <ion-button
+                                size="small"
+                                color="dark"
+                                fill="solid"
+                                class="ion-margin-start"
+                                [href]="homeData.homeBARLink"
+                            >
+                                {{ homeData.homeBARLabel }}
+                            </ion-button>
+                        </ion-text>
+                        <ion-text *ngIf="segment == Segment.KBAR">
+                            {{ homeData.homeKBAR }}
+                            <ion-button
+                                size="small"
+                                color="dark"
+                                fill="solid"
+                                class="ion-margin-start"
+                                [href]="homeData.homeKBARLink"
+                            >
+                                {{ homeData.homeKBARLabel }}
+                            </ion-button>
+                        </ion-text>
+                        <br />
+                        <br />
+                        <ion-text>{{ homeData.homeGreeting }}</ion-text>
                     </ion-text>
                 </h2>
             </ion-card-title>
@@ -67,10 +117,16 @@
             </div>
             <div *ngIf="category && subCategory && !offer">
                 <offer
-                    *ngFor="let _offer of offers | categoryFilter: category | subCategoryFilter: subCategory"
+                    *ngFor="let _offer of offers | categoryFilter: category | subCategoryFilter: subCategory | segmentFilter: segment"
                     [offer]="_offer"
                     (click)="clickOffer(_offer)"
                 ></offer>
+                <div
+                    *ngIf="(offers | categoryFilter: category | subCategoryFilter: subCategory | segmentFilter: segment).length === 0"
+                    class="ion-margin ion-padding"
+                >
+                    We have no publications for this category.
+                </div>
             </div>
             <div *ngIf="category && subCategory && offer">
                 <offer

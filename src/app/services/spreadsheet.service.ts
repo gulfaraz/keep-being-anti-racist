@@ -5,6 +5,7 @@ import { Category } from "src/app/models/category.model";
 import { Help } from "src/app/models/help.model";
 import { Home } from "src/app/models/home.model";
 import { Offer } from "src/app/models/offer.model";
+import { Segment } from "src/app/models/segment.enum";
 import { SubCategory } from "src/app/models/sub-category.model";
 import { environment } from "src/environments/environment";
 
@@ -142,6 +143,8 @@ export class SpreadsheetService {
       categoryID: Number(
         SpreadsheetService.readCellValue(offerRow, "gsx$categoryid")
       ),
+      segment:
+        Segment[SpreadsheetService.readCellValue(offerRow, "gsx$segment")],
     };
   }
 
@@ -194,6 +197,15 @@ export class SpreadsheetService {
   convertHomeRowToHomeObject(homeRows): Home {
     return {
       homeGreeting: SpreadsheetService.readCellValue(homeRows[0], "gsx$value"),
+      homeAR: SpreadsheetService.readCellValue(homeRows[1], "gsx$value"),
+      homeBAR: SpreadsheetService.readCellValue(homeRows[2], "gsx$value"),
+      homeKBAR: SpreadsheetService.readCellValue(homeRows[3], "gsx$value"),
+      homeARLabel: SpreadsheetService.readCellValue(homeRows[4], "gsx$value"),
+      homeARLink: SpreadsheetService.readCellValue(homeRows[5], "gsx$value"),
+      homeBARLabel: SpreadsheetService.readCellValue(homeRows[6], "gsx$value"),
+      homeBARLink: SpreadsheetService.readCellValue(homeRows[7], "gsx$value"),
+      homeKBARLabel: SpreadsheetService.readCellValue(homeRows[8], "gsx$value"),
+      homeKBARLink: SpreadsheetService.readCellValue(homeRows[9], "gsx$value"),
     };
   }
 

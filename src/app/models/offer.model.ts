@@ -1,3 +1,5 @@
+import { Segment } from "src/app/models/segment.enum";
+
 export class Offer {
   offerID: number;
   offerName: string;
@@ -15,4 +17,5 @@ export class Offer {
   offerVisible: boolean;
   subCategoryID: number;
   categoryID: number;
+  segment: Segment;
 }

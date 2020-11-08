@@ -7,6 +7,7 @@ import homeMock from "src/app/mocks/home.mock";
 import { Category } from "src/app/models/category.model";
 import { Home } from "src/app/models/home.model";
 import { Offer } from "src/app/models/offer.model";
+import { Segment } from "src/app/models/segment.enum";
 import { SubCategory } from "src/app/models/sub-category.model";
 import { HomeDataService } from "src/app/services/home-data.service";
 import { OffersService } from "src/app/services/offers.service";
@@ -30,6 +31,8 @@ export class KeepBeingAntiRacistPage {
   private windowNavigator: any = navigator;
   public loadingHomeData: boolean = false;
   public loadingOffers: boolean = false;
+  public Segment = Segment;
+  public segment: Segment = Segment.AR;
 
   constructor(
     public offersService: OffersService,
@@ -164,5 +167,9 @@ export class KeepBeingAntiRacistPage {
     });
 
     return await popover.present();
+  }
+
+  segmentChanged(event) {
+    this.segment = event.detail.value as Segment;
   }
 }

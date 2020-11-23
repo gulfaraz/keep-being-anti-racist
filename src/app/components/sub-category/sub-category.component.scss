@@ -51,5 +51,8 @@ ion-card-content {
     visibility: visible;
     top: 0;
     left: 150px;
+    margin: 0 15px;
+    height: 150px;
+    overflow: auto;
   }
 }

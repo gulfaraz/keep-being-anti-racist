@@ -1,0 +1,49 @@
+# This workflow will deploy to the production server, do a clean install of
+# node dependencies, build and start the app
+
+name: KBAR Workflow
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [12.x]
+
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v2
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v1
+              with:
+                  node-version: ${{ matrix.node-version }}
+
+            - name: Install
+              run: npm ci
+
+            - name: Test
+              run: npm run test --if-present
+
+            - name: Build
+              run: npm run build --if-present
+
+            - name: Update Production
+              uses: appleboy/ssh-action@master
+              if: github.event_name == 'push'
+              with:
+                  host: ${{ secrets.PRODUCTION_HOST }}
+                  username: ${{ secrets.PRODUCTION_USERNAME }}
+                  key: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+                  passphrase: ${{ secrets.PRODUCTION_SSH_PASSPHRASE }}
+                  script: |
+                      cd /root/keep-being-anti-racist
+                      git pull
+                      npm run build -- --prod
